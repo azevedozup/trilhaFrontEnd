@@ -38,13 +38,10 @@ header {
 
 .logo{
 	width: 5em;
-	border: 1px solid red;
 }
 
 .perfil{
-	
 	width: 2.5em;
-	border: 1px solid blue
 }
 
 /*---------------------------------------------------------------------
@@ -54,8 +51,8 @@ header {
 .searchbar{
 	background-color: white;
 	text-align: left;
-	height: 1.7em;
-	width: 55em;
+	height: 1.8em;
+	width: 50em;
 	border-radius: 3em;
 	display: flex;
 	align-items: center;
@@ -72,12 +69,14 @@ header {
 	margin-left: 1em;
 	font-size:  1.1em;
 	font-weight: 540;
-	color: #2c3e50;
 	border: 0em;
 	outline-color: white;
 }
 
-
+.searchinput::placeholder {
+    color: #2c3e50;
+    opacity: 0.9;
+}
 
 /*---------------------------------------------------------------------
                                	 MENU
@@ -86,7 +85,30 @@ header {
 .menu{	
 	width: 15%;
 	height: 100%;
-	background-color: white;	
+	background-color: white;
+	display: flex;	
+	justify-content: space-around;
+}
+
+
+nav ul {
+	list-style: none;
+	margin: 20px;
+	border: 1px solid red;
+}
+
+nav a{
+	color: #908f92;
+}
+
+nav ul li a:link {
+	margin-right: 25px;
+	padding-bottom: 3px;
+
+}
+
+nav ul li a:hover {
+	color:#b4c12d;
 }
 
 /*---------------------------------------------------------------------
@@ -101,4 +123,11 @@ header {
 	text-align: center;
 	margin: 3% 3% 0 3%; /*cima, direita, baixo, esquerda*/
 	border-radius: 0.5em;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.tablestyle{
+	border: 2px solid red;
 }
