@@ -88,27 +88,35 @@ header {
 	background-color: white;
 	display: flex;	
 	justify-content: space-around;
+	
 }
 
 
 nav ul {
 	list-style: none;
-	margin: 20px;
-	border: 1px solid red;
+	margin: 1rem;
 }
 
-nav a{
+.btn-menu{
+	width: 2rem;
+	margin-right: 1rem;
+}
+
+.btn-menu:hover{
+	width: 2rem;
+	margin-right: 1rem;
+}
+
+.menu-option{
+	font-size: 1.3rem;
 	color: #908f92;
+	text-decoration-line: none;
+	
 }
 
-nav ul li a:link {
-	margin-right: 25px;
-	padding-bottom: 3px;
-
-}
-
-nav ul li a:hover {
+.menu-option:hover {
 	color:#b4c12d;
+	text-decoration-line: none;
 }
 
 /*---------------------------------------------------------------------
@@ -128,6 +136,12 @@ nav ul li a:hover {
 	align-items: flex-start;
 }
 
-.tablestyle{
-	border: 2px solid red;
+table{
+	width: 100%;
+	border-radius: 0.5em;
+	justify-content: space-around;
+}
+
+td{
+	border-bottom: 0.1rem solid #ebebeb;
 }
