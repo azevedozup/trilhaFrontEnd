@@ -22,78 +22,78 @@
           <a href="index.html"><img src="../images/logo.PNG" class="logo"></a>
         </div>
         
-        <div class="searchbar">
-          <img src="../images/btn_busca.PNG" class="searchimage">
-          <input type="text" class="searchinput" placeholder="Buscar"> 
+        <div class="search-bar">
+          <ion-icon name="search-outline" class="search-image"></ion-icon>
+          <input type="text" class="search-input" placeholder="Buscar"> 
         </div>
         
         <div>
-          <a href="index.html"><img src="../images/btn_perfil.PNG" class="perfil"></a>
+          <a href="index.html">
+            <ion-icon name="person-circle-outline" class="perfil" title="Perfil">
+            </ion-icon>
+          </a>
         </div>
       </header> 
       <!-- Final Cabeçalho -->
 
-    
+      <nav class="menu"><!-- Início nav -->
+        <ul>
+          <li> 
+            <a href="#" class="menu-link" title="All">
+              <span><ion-icon name="apps-outline" class="menu-btn"></ion-icon></span>
+              <span class="menu-opt">Todos</span>
+            </a>
+          </li>
 
-      <div class="menu">
-        <div>
-          <nav><!-- Início nav -->
-            <ul>
-              <li>
-                <img src="../images/btn_todos_cinza.PNG" class="btn-menu">
-                <a href="#" class="menu-option">Todos</a>
-              </li>
-              <li>
-                <img src="../images/btn_atendidos_cinza.PNG" class="btn-menu">
-                <a href="#" class="menu-option">Atendidos</a>
-              </li>
-              <li>
-                <img src="../images/btn_lixeira_cinza.PNG" class="btn-menu">
-                <a href="#" class="menu-option">Lixeira</a>
-              </li>
-            </ul>
-          </nav>
+          <li> 
+            <a href="#" class="menu-link" title="Answered">
+              <span><ion-icon name="checkmark-done-outline" class="menu-btn"></ion-icon></span>
+              <span class="menu-opt">Atendidos</span>
+            </a>
+          </li>
 
-        </div>
-        
-      </div>
+          <li> 
+            <a href="#" class="menu-link" title="Trash">
+              <span><ion-icon name="trash-outline" class="menu-btn"></ion-icon></span>
+              <span class="menu-opt">Lixeira</span>
+            </a>
+          </li>
+
+          
+        </ul>
+      </nav>
+
 
       <div class="content">
         <table>
           <tr>
-            <td><img src="../images/img_lorraine.PNG"></td>
-            <td>Lorraine</td>
-            <td>lorraine.beck22@example.com</td>
-            <td>(960)-861-1890</td>
-            <td>Uberlândia - MG</td>
+              <td><img src="../images/img_rafa.PNG" class="profile-img"></td>
+              <td>Rafael</td>
+              <td>rafael.azevedo@zup.com.br</td>
+              <td>(19) 98730-0976</td>
+              <td>Campinas - SP</td>
+              <td><ion-icon name="trash-outline" class="content-btn"></ion-icon></td>
+              <td><ion-icon name="apps-outline" class="content-btn"></ion-icon></td>
+              <td><ion-icon name="checkmark-circle-outline" class="content-btn"></ion-icon></td>
           </tr>
           <tr>
-            <td><img src="../images/img_lorraine.PNG"></td>
-            <td>Lorraine</td>
-            <td>lorraine.beck22@example.com</td>
-            <td>(960)-861-1890</td>
-            <td>Uberlândia - MG</td>
-          </tr>
-          <tr>
-            <td><img src="../images/img_lorraine.PNG"></td>
-            <td>Lorraine</td>
-            <td>lorraine.beck22@example.com</td>
-            <td>(960)-861-1890</td>
-            <td>Uberlândia - MG</td>
-          </tr>
-          <tr>
-            <td><img src="../images/img_lorraine.PNG"></td>
-            <td>Lorraine</td>
-            <td>lorraine.beck22@example.com</td>
-            <td>(960)-861-1890</td>
-            <td>Uberlândia - MG</td>
-          </tr>
+            <td><img src="../images/img_rafa.PNG" class="profile-img"></td>
+            <td>Rafael</td>
+            <td>rafael.azevedo@zup.com.br</td>
+            <td>(19) 98730-0976</td>
+            <td>Campinas - SP</td>
+            <td><ion-icon name="trash-outline" class="content-btn"></ion-icon></td>
+            <td><ion-icon name="apps-outline" class="content-btn"></ion-icon></td>
+            <td><ion-icon name="checkmark-circle-outline" class="content-btn"></ion-icon></td>
+        </tr>
         </table>
       </div>  
-      
     </div>
 
-  </body>
+    <script src="../js/index.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 
+  </body>
 </html>
 

@@ -14,7 +14,7 @@ body {
 }
 
 #container {
-	width: 80em;
+	width: 80rem;
 	height: 35em;
 	display: flex;
 	flex-wrap: wrap;
@@ -28,43 +28,49 @@ body {
 
 header {
 	width: 100%;
-	height: 1%;
+	height: 1rem;
 	background-color: #2c3e50;
 	padding: 2%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	box-shadow: 0px 6px 5px -5px; #908f92; /*sombra em baixo*/
 }
 
 .logo{
-	width: 5em;
+	padding-top: 0.3rem;
+	width: 5rem;
 }
 
 .perfil{
-	width: 2.5em;
+	width: 2.5rem;
+	height: 2.5rem;
+	color: white;
 }
 
 /*---------------------------------------------------------------------
                                	SEARCHBAR
 ---------------------------------------------------------------------*/
 
-.searchbar{
+.search-bar{
+	height: 2.3rem;
+	width: 50rem;
 	background-color: white;
 	text-align: left;
-	height: 1.8em;
-	width: 50em;
 	border-radius: 3em;
 	display: flex;
 	align-items: center;
 }
 
-.searchimage {
+.search-image {
+	width: 1.3rem;
+	height: 1.3rem;
 	padding-left: 0.5em;
-	width: 2.5%;
-	height: 70%;
+	color:#b4c12d;
 }
 
-.searchinput{
+.search-input{
+
 	width: 93%;
 	margin-left: 1em;
 	font-size:  1.1em;
@@ -84,40 +90,53 @@ header {
 
 .menu{	
 	width: 15%;
-	height: 100%;
+	height: 30.8rem;
 	background-color: white;
-	display: flex;	
-	justify-content: space-around;
-	
+	box-shadow: 5px 0 5px -5px #908f92; /*sombra na direita*/
 }
 
+.menu-link{	
+	list-style: none;	
+	color: #908f92;
+	text-decoration-line: none;	
+	width: 12rem;
+	display: flex;
+	justify-content: space-around;
+	margin: 1.3rem 0 0 0; /*cima, direita, baixo, esquerda*/
+}
+
+.menu-link:hover {
+	list-style: none;	
+	color: #908f92;
+	text-decoration-line: none;	
+	width: 12rem;
+	display: flex;
+	justify-content: space-around;
+	margin: 1.3rem 0 0 0; /*cima, direita, baixo, esquerda*/
+	color:#b4c12d;
+}
 
 nav ul {
 	list-style: none;
-	margin: 1rem;
 }
 
-.btn-menu{
-	width: 2rem;
-	margin-right: 1rem;
-}
+/*----------- BOTÕES ----------*/
 
-.btn-menu:hover{
-	width: 2rem;
-	margin-right: 1rem;
-}
-
-.menu-option{
+.menu-opt{
+	width: 8rem;
+	height: 2rem;
 	font-size: 1.3rem;
-	color: #908f92;
 	text-decoration-line: none;
-	
+	padding-top: 0.1rem;
+	padding-left: 1.5rem;
 }
 
-.menu-option:hover {
-	color:#b4c12d;
+.menu-btn{
+	width: 1.5rem;
+	height: 1.5rem;
 	text-decoration-line: none;
-}
+	margin-left: 1rem;
+}	
 
 /*---------------------------------------------------------------------
                             	CONTEÚDO
@@ -125,15 +144,16 @@ nav ul {
 
 .content{
 	width: 79%;
-	height: 100%; 
+	height: 28rem; 
 	background-color:white;	
 	align-items: flex-end;
 	text-align: center;
 	margin: 3% 3% 0 3%; /*cima, direita, baixo, esquerda*/
 	border-radius: 0.5em;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: flex-start;
+  	box-shadow: 0px 0px 4px 0px #908f92; /*sombra no contorno*/
 }
 
 table{
@@ -145,3 +165,25 @@ table{
 td{
 	border-bottom: 0.1rem solid #ebebeb;
 }
+
+
+/*------ CONTEÚDO TABELA -------*/
+
+.profile-img{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 100%;
+	padding-top: 0.1rem;
+}
+
+.content-btn{
+
+}
+
+.profile-row{
+	border: 1px solid red;
+}
+
+
+
+
