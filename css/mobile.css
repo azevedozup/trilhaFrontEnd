@@ -54,7 +54,6 @@ body {
 
 .logo{
 	width: 10%;
-    height: 100%;
 
     margin: 5px 0px 0px 10px;  
 
@@ -202,5 +201,81 @@ body {
 
     .menu{
         display: block;
+    }
+}
+
+/*---------------------------------------------------------------------
+                                 CONTENT
+                        		*MOBILE*
+---------------------------------------------------------------------*/
+
+.main{
+    display: none; /*hide main desktop*/
+}
+
+.main-mobile{
+	width: 100%;
+	
+}
+
+.main-mobile table{
+	background: none;
+    width: 90%;
+    height: 100px;
+	
+	margin: 5%;
+	color: #908f92;
+
+	text-align: center;	
+	
+	box-shadow: 0px 0px 4px 0px #908f92; /*sombra no contorno*/
+	background-color: white;
+
+	border-collapse: collapse;
+	
+}
+
+.main-mobile table tr {
+	width: 100%;
+	
+	margin-top: 30px;
+
+	border-bottom: 2px solid #E7E7E7;
+}
+
+.main-mobile table tr:last-child{
+	border-bottom: none;
+}
+
+.main-mobile table tr td{	
+	background-color: white;
+}
+
+.content-photo-mobile{
+    width: 40px;
+    
+    margin: 5px;
+
+	border-radius: 100%;
+}
+
+/*
+.content-icons-mobile{
+    display: flex;
+    justify-content: space-around;
+} */
+
+/*---------------------------------------------------------------------
+                                 CONTENT
+                        		*DESKTOP*
+---------------------------------------------------------------------*/
+
+@media (min-width: 991.98px) {
+    .main-mobile{
+        display: none; /*hide main mobile*/
+    }
+
+    .main{
+        display:block
     }
 }
