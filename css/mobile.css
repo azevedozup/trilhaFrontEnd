@@ -4,13 +4,15 @@
 
 * {
 	margin: 0;
-	padding: 0;
+    padding: 0;
+    
 
 }
 
 body {
 	font-size: 1em;
 	font-family: "Trebuchet MS", Helvetica, sans-serif, serif;
+	background: rgb(235, 234, 234);
 
 }
 
@@ -18,7 +20,6 @@ body {
 	background: rgb(235, 234, 234);
 
 	width: 100%;
-	height: 100vh;
 
 	display: flex;
 	flex-wrap: wrap;
@@ -86,7 +87,6 @@ body {
 
 .menu-mobile{
 	width: 100%;
-    height: 150px;
     
     margin-top: 2px;
     display: none;
@@ -214,33 +214,37 @@ body {
 }
 
 .main-mobile{
+    display: flex;
 	width: 100%;
 	
 }
 
 .main-mobile table{
-	background: none;
     width: 90%;
-    height: 100px;
 	
 	margin: 5%;
-	color: #908f92;
-
-	text-align: center;	
-	
-	box-shadow: 0px 0px 4px 0px #908f92; /*sombra no contorno*/
-	background-color: white;
-
-	border-collapse: collapse;
-	
+    color: #908f92;
 }
 
 .main-mobile table tr {
-	width: 100%;
-	
-	margin-top: 30px;
+    width: 100%;
+    height: 100%;
 
-	border-bottom: 2px solid #E7E7E7;
+    border-bottom: 2px solid #E7E7E7;
+        
+    background-color: white;
+    
+	box-shadow: 0px 0px 4px 0px #908f92; /*sombra no contorno*/ 
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap ;
+}
+
+.main-mobile table tr:first-child{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 .main-mobile table tr:last-child{
@@ -251,19 +255,28 @@ body {
 	background-color: white;
 }
 
+.main-mobile table tr td button{	
+    width: 60px;
+    height: 60px;
+    color: #908f92;
+    border-style: none;
+    background: none;
+}
+.main-mobile table tr td button ion-icon{	
+    width: 20px;
+    height: 20px;
+    color: #908f92;
+    border-style: none;
+    background: none;
+}
+
 .content-photo-mobile{
-    width: 40px;
+    width: 60px;
     
     margin: 5px;
 
 	border-radius: 100%;
 }
-
-/*
-.content-icons-mobile{
-    display: flex;
-    justify-content: space-around;
-} */
 
 /*---------------------------------------------------------------------
                                  CONTENT
