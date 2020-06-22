@@ -1,0 +1,314 @@
+/*---------------------------------------------------------------------
+                                GENERAL
+---------------------------------------------------------------------*/
+
+* {
+	margin: 0;
+	padding: 0;
+
+}
+
+body {
+	font-size: 1em;
+	font-family: "Trebuchet MS", Helvetica, sans-serif, serif;
+
+}
+
+.container{	
+	background: rgb(235, 234, 234);
+
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: flex-start;
+
+}
+
+/*---------------------------------------------------------------------
+                        		HEADER
+---------------------------------------------------------------------*/
+
+header{
+	background-color: #2c3e50;
+	
+	width: 100%;
+	height: 10%;
+	
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+}
+
+
+/*.....IMAGES.....*/
+
+.logo{
+	width: 7vw;
+	height: 7vh;
+
+	margin-left: 30px; 
+
+}
+
+.user-profile{
+	width: 8vw;
+	height: 8vh;
+
+	margin-right: 30px; 
+
+	color: white;
+
+}
+
+.search-image {
+	width: 5vw;
+	height: 5vh;	
+
+	color:#b4c12d;
+}
+
+/*.....SEARCH-BAR.....*/
+
+.search-bar{
+	width: 60%;
+	height: 65%;
+
+	background-color: white;	
+	border-radius: 3em;
+
+	text-align: left;
+
+	display: flex;
+	align-items: center;
+
+}
+
+.search-bar button {
+	display: none;
+}
+
+.search{
+	width: 90%;
+	height: 80%;
+	
+	border: none;
+	cursor: text;
+}
+
+.search::placeholder {
+    color: #2c3e50;
+	opacity: 0.9;
+	
+}
+
+/*---------------------------------------------------------------------
+                        	SIDEBAR
+---------------------------------------------------------------------*/
+
+.menu{
+	width: 20%;
+	height: 90%;
+
+	background-color: white;
+	box-shadow: 5px 0 5px -5px #908f92; /*rigth shadow*/
+}
+
+.menu-link{	
+	color: #908f92;
+	text-decoration-line: none;	
+	display: flex;
+	margin: 8%;
+	
+	justify-content: space-around;
+}
+
+.menu-link:hover {
+	color:#b4c12d;
+}
+
+menu ul{
+	list-style: none;
+	flex-wrap: wrap;
+}
+
+menu li{
+	list-style: none;
+}
+
+/*----------- BOTÕES ----------*/
+
+.menu-opt{
+	width: 50%;
+	font-size: 1.3em;
+	text-decoration-line: none;
+	padding-top: 0.1rem;
+	padding-left: 1.5rem;
+}
+
+.menu-btn{
+	width: 120%;
+	height: 100%;
+	
+	text-decoration-line: none;
+	margin-left: 1rem;
+}	
+
+
+/*---------------------------------------------------------------------
+                        	CONTENT
+---------------------------------------------------------------------*/
+
+main{
+
+	width: 80%;
+	height: 90%;
+	
+}
+
+table{
+	background: none;
+	width: 90%;
+	
+	margin: 5%;
+	color: #908f92;
+
+	text-align: center;	
+	
+	box-shadow: 0px 0px 4px 0px #908f92; /*sombra no contorno*/
+	background-color: white;
+
+	border-collapse: collapse;
+	
+}
+
+tr {
+	width: 100%;
+	
+	margin-top: 30px;
+
+	border-bottom: 2px solid #E7E7E7;
+}
+
+tr:last-child{
+	border-bottom: none;
+}
+
+td{	
+	background-color: white;
+}
+
+.content-image{
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+}
+
+
+/*---------------------------------------------------------------------
+                            RESPONSIVENESS
+---------------------------------------------------------------------*/
+
+@media (max-width: 991.98px) {
+
+	/*.....HEADER.....*/
+	header{
+		width: 100%;
+		height: 10%;
+	}
+
+	.logo{
+		width: 15%;
+		height: 90%
+	}
+	
+	.user-profile{
+		display: none;
+	}
+	
+	.search, .search-image{
+		display: none;
+	}
+
+	.search-bar{
+		width: 10%;
+		height: 70%;
+
+		display: flex;	
+		justify-content: center;
+		align-content: center;
+		margin-right:10%;
+	}
+
+	.search-bar button {
+		width: 100%;
+		height: 100%;	
+
+		background-color: #2c3e50;	
+		border: none;
+		display: block;	
+		cursor: pointer;
+	}
+
+	.search-bar button .search-img-btn{
+		width: 100%;
+		height: 100%;
+		color:#b4c12d;
+	}
+	
+
+	/*.....SIDEBAR.....*/
+	.menu{
+		width: 100%;
+		height: 15%;
+
+		display: flex;	
+		
+		justify-content: center;
+		align-items: center;
+		margin: 0px;		
+		background-color: white;
+		
+	}
+
+	.menu ul{
+		width: 100%;
+		margin: 0px;
+		padding:0px;
+
+		list-style: none;
+
+		display: flex;
+	}
+
+	
+
+	.menu-btn{
+		width: 100%;
+		height: 100%;
+	}
+	
+	.menu-opt{
+		width: 100%;
+		height: 100%;
+	}
+	
+
+	/*.....CONTENT.....*/
+	main{
+		width: 100%;
+		height: 80%;
+	}
+
+	tr{
+		
+	overflow-x: auto;
+	}
+
+
+	
+}
+

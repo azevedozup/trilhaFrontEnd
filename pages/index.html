@@ -1,105 +1,238 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-  <head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+        <link rel="stylesheet" type="text/css" href="../css/styles.css">
 
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+        <title>ZUP - Index</title>
+    </head>
 
-    <title>ZUP - Challenge 1</title>
-
-  </head>
-
-  <body>
+    <body>
 
     <div class="container">
 
-      <!---------------------- START HEADER ---------------------->
+    <!---------------------- HEADER *MOBILE* (START) ---------------------->
 
-      <header> 
+        <header class="header-mobile"> 
 
-        <div>
-          <a href="index.html">
-            <img src="../images/logo.PNG" class="logo" >
-          </a>
-        </div>
+            <div>
+                <a href="index.html">
+                <img src="../images/logo.PNG" class="logo" >
+                </a>
+            </div>
+            
+            <div>
+                <button class="menu-mobile-btn" id="menu-mobile-btn">&#9776;</button>
+            </div>
+
+        </header> 
+
+    <!----------------------- HEADER *MOBILE* (END) ------------------------>
+
+    <!---------------------- HEADER *DESKTOP* (START) ---------------------->
+
+        <header class="header"> 
+            <div>
+                <a href="index.html">
+                    <img src="../images/logo.PNG" class="header-logo">
+                </a>
+            </div>
+            
+            <div class="search-bar">
+                <button class="header-search-btn">
+                    <ion-icon name="search-outline" class="header-search-ico"></ion-icon>
+                </button>
+                <input type="text" class="search" placeholder="Buscar...">
+            </div>
+            
+            <div>
+                <button class="header-profile-btn">
+                    <ion-icon name="person-circle-outline" class="header-profile-ico"></ion-icon>
+                </button>
+            </div>
+        </header>
+
+    <!----------------------- HEADER *DESKTOP* (END) -------------------------->
+
+    <!------------------------- MENU *MOBILE* (START) ------------------------->
+
+
+        <nav class="menu-mobile" id="menu-mobile">
+            <ul>
+                <li> 
+                    <a href="#" title="Perfil">
+                        <span>
+                            <ion-icon name="person-circle-outline" class="menu-mobile-img"></ion-icon>
+                        </span>
+                        <span>Perfil</span>
+                    </a>
+                </li>
+                <li> 
+                    <a href="#" title="Todos">
+                        <span>
+                            <ion-icon name="apps-outline" class="menu-mobile-img"></ion-icon>
+                        </span>
+                        <span>Todos</span>
+                    </a>
+                </li>
+                <li> 
+                    <a href="#" title="Atendidos">
+                        <span>
+                            <ion-icon name="checkmark-done-outline" class="menu-mobile-img"></ion-icon>
+                        </span>
+                        <span>Atendidos</span>
+                    </a>
+                </li>
+                <li> 
+                    <a href="#" title="Lixeira">
+                        <span>
+                            <ion-icon name="trash-outline" class="menu-mobile-img"></ion-icon>
+                        </span>
+                        <span>Lixeira</span>
+                    </a>
+                </li>
+                <li class="search-mobile"> 
+                    <span>
+                        <button class="search-mobile-btn">
+                            <ion-icon name="search-outline" class="search-mobile-img"></ion-icon>
+                        </button>
+                    </span>
+                        
+                    <input type="text" class="search-mobile-input" placeholder="Buscar...">
+                </li>
+            </ul>
+        </nav>
+
+    <!------------------------- MENU *MOBILE* (END) --------------------------->
+
+    <!------------------------- MENU *DESKTOP* (START) ------------------------>
+
+        <nav class="menu">
+            <ul>
+                <li> 
+                    <a href="index.html" title="Todos">
+                        <ion-icon name="apps-outline" class="menu-ico"></ion-icon>
+                        <span class="menu-opt">
+                            Todos
+                        </span>
+                    </a>
+                </li>
+
+                <li> 
+                    <a href="index.html" title="Atendidos">
+                        <ion-icon name="checkmark-done-outline" class="menu-ico"></ion-icon>
+                        <span class="menu-opt">
+                            Atendidos
+                        </span>
+                    </a>
+                </li>
+
+                <li> 
+                    <a href="index.html" title="Lixeira">
+                        <ion-icon name="trash-outline" class="menu-ico"></ion-icon>
+                        <span class="menu-opt">
+                            Lixeira
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
         
-        <div class="search-bar">
-            <ion-icon name="search-outline" class="search-image"></ion-icon>
-          <input type="text" class="search" placeholder="Buscar...">
-          <button>
-            <ion-icon name="search-outline" class="search-img-btn"></ion-icon>
-          </button>
-        </div>
-        
-        <div>
-          <a href="index.html">
-            <ion-icon name="person-circle-outline" class="user-profile"></ion-icon>
-          </a>
-        </div>
+    <!------------------------- MENU *DESKTOP* (END) ----------------------------->
 
-      </header> 
+    <!------------------------- CONTENT *MOBILE* (START) ------------------------->
 
-      <!----------------------- END HEADER ------------------------>
-      <!---------------------- START SIDEBAR ---------------------->
+        <main class="main-mobile">
+            <table>
+                <tr>
+                    <td>
+                        <img src="../images/img_rafa.PNG" class="content-photo-mobile" title="Foto do usuário">
+                    </td>
+                    <th title="Nome do Usuário">
+                        Rafael
+                    </th>
+                    <td>
+                        <button title="Mais informações">
+                            <ion-icon name="grid-outline"></ion-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button title="Mover para atendidos">
+                            <ion-icon name="checkmark-outline"></ion-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button title="Mover para lixeira">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </main> 
+    
+    <!------------------------- CONTENT *MOBILE* (END) ---------------------------->
 
+    <!------------------------- CONTENT *DESKTOP* (START) ------------------------->
 
-      <nav class="menu">
-        <ul>
-          <li> 
-            <a href="index.html" class="menu-link" title="All">
-              <span><ion-icon name="apps-outline" class="menu-btn"></ion-icon></span>
-              <span class="menu-opt">Todos</span>
-            </a>
-          </li>
-
-          <li>  
-            <a href="answered.html" class="menu-link" title="Answered">
-              <span><ion-icon name="checkmark-done-outline" class="menu-btn"></ion-icon></span>
-              <span class="menu-opt">Atendidos</span>
-            </a>
-          </li>
-
-          <li> 
-            <a href="trash.html" class="menu-link" title="Trash">
-              <span><ion-icon name="trash-outline" class="menu-btn"></ion-icon></span>
-              <span class="menu-opt">Lixeira</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <!----------------------- END SIDEBAR ----------------------->
-      <!---------------------- START CONTENT ---------------------->
-
-      <main>
-          <table>
-            <tr>
-              <td><img src="../images/img_rafa.PNG" class="content-image"></td>
-              <td>Rafael</td>
-              <td>rafael.azevedo@zup.com.br</td>
-              <td>(19) 98730-0976</td>
-              <td>Campinas - SP</td>
-            </tr>
-            <tr>
-              <td><img src="../images/img_rafa.PNG" class="content-image"></td>
-              <td>Rafael</td>
-              <td>rafael.azevedo@zup.com.br</td>
-              <td>(19) 98730-0976</td>
-              <td>Campinas - SP</td>
-            </tr>
-          </table>
-      </main> 
-      
-      <!---------------------- END CONTENT ---------------------->
+        <main class="main">
+            <table>
+                <tr>
+                    <td><img src="../images/img_rafa.PNG" class="content-image"></td>
+                    <td>Rafael</td>
+                    <td>rafael.azevedo@zup.com.br</td>
+                    <td>(19) 98730-0976</td>
+                    <td>Campinas - SP</td>
+                    <td>
+                        <button title="Mover para atendidos">
+                            <ion-icon name="apps-outline"></ion-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button title="Mover para atendidos">
+                            <ion-icon name="checkmark-outline"></ion-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button title="Mover para atendidos">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><img src="../images/img_rafa.PNG" class="content-image"></td>
+                    <td>Rafael</td>
+                    <td>rafael.azevedo@zup.com.br</td>
+                    <td>(19) 98730-0976</td>
+                    <td>Campinas - SP</td>
+                    <td>
+                        <button title="Mover para atendidos">
+                            <ion-icon name="apps-outline"></ion-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button title="Mover para atendidos">
+                            <ion-icon name="checkmark-outline"></ion-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button title="Mover para atendidos">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </main> 
+    
+    <!------------------------- CONTENT *DESKTOP* (END) ------------------------->
 
     </div>
 
     <script src="../js/index.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
-  </body>
+    </body>
 </html>
 
