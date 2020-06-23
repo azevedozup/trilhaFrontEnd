@@ -122,7 +122,7 @@ body {
     flex-wrap: wrap;
 }
 
-.content-name-space h1{
+.content-name-space h3{
     width: 100%;
     text-align: center;
     padding-bottom: 10px;
@@ -130,7 +130,7 @@ body {
     font-size: 130%;
 }
 
-.content-name-space h4{
+.content-name-space h2{
     width: 100%;
     text-align: center;
     padding: 10px;
@@ -192,11 +192,11 @@ body {
     .content-name-space{
         margin-top: 10px;
     }
-    .content-name-space h1{
+    .content-name-space h3{
         font-size: 200%;
     }
     
-    .content-name-space h4{
+    .content-name-space h2{
         font-size: 120%;
         font-weight: normal;
     }
