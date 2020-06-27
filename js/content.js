@@ -22,7 +22,6 @@ window.addEventListener('load', async () => {
 
     const { picture, name:{first, last}, email, birth, phone, address:{street:{name, number, district}}, pass} = user;
 
-    
     let variableDetail = document.getElementById('variable_detail')
     let frase = document.getElementById('frase')
 
@@ -31,35 +30,59 @@ window.addEventListener('load', async () => {
 
     //spread operation
     let arr = [...document.querySelectorAll(".content_button")]
+
+    let button = document.getElementById('btn_name')
+    button.classList.add("content_button_color")
+
     arr.forEach(e => e.addEventListener('mouseover', () => {
+                
         event.stopPropagation()
 
         if (event.target.id === 'btn_name') {
             frase.innerText = 'Olá, meu nome é'
             variableDetail.innerText = first + ' ' + last
+            button.classList.remove("content_button_color")
+            button = document.getElementById('btn_name')
+            button.classList.add("content_button_color")
         }
         if (event.target.id === 'btn_email') {
             frase.innerText = 'O meu e-mail é'
             variableDetail.innerText = email
+            button.classList.remove("content_button_color")
+            button = document.getElementById('btn_email')
+            button.classList.add("content_button_color")
         }
         if (event.target.id === 'btn_birth') {
             frase.innerText = 'O meu nascimento foi dia'
             variableDetail.innerText = birth
+            button.classList.remove("content_button_color")
+            button = document.getElementById('btn_birth')
+            button.classList.add("content_button_color")
         }
         if (event.target.id === 'btn_address') {
             frase.innerText = 'O meu endereço é'
             variableDetail.innerText = name + ', ' + number + ' - ' + district
+            button.classList.remove("content_button_color")
+            button = document.getElementById('btn_address')
+            button.classList.add("content_button_color")
         }
         if (event.target.id === 'btn_phone') {
             frase.innerText = 'O meu telefone é'
             variableDetail.innerText = phone
+            button.classList.remove("content_button_color")
+            button = document.getElementById('btn_phone')
+            button.classList.add("content_button_color")
         }
         if (event.target.id === 'btn_pass') {
-            frase.innerText = 'O minha senha é'
+            frase.innerText = 'A minha senha é'
             variableDetail.innerText = pass
+            button.classList.remove("content_button_color")
+            button = document.getElementById('btn_pass')
+            button.classList.add("content_button_color")
         }
         
     }))
+    
 });
 
 function backIndexClick(){
