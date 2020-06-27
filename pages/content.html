@@ -21,8 +21,8 @@
             <header class="header"> 
 
                 <div>
-                    <button>
-                        <ion-icon name="arrow-back-circle" class="header-back-btn"></ion-icon>
+                    <button onClick="backIndexClick()">
+                        <ion-icon name="arrow-back-circle" id="header_back_btn"></ion-icon>
                     </button>
                 </div>
 
@@ -34,45 +34,16 @@
 
             <main class="main"> 
 
-                <div class="content">
-                    <div class="content-photo-space">
-                        <img src="../images/img_rafa.PNG" class="content-photo">
-                    </div>
-                   
-                    <div class="content-name-space">
-                        <h2>Oi, meu nome é</h2>
-                        <h3>Rafael Azevedo</h3>
-                    </div>
-                    <div class="content-buttons-space">
-                        <button>
-                            <ion-icon name="person-outline" class="content-buttons-img"></ion-icon>
-                        </button>
-                        <button>
-                            <ion-icon name="mail-outline" class="content-buttons-img"></ion-icon>
-                        </button>
-                        <button>
-                            <ion-icon name="calendar-outline" class="content-buttons-img"></ion-icon>
-                        </button>
-                        <button>
-                            <ion-icon name="location-outline" class="content-buttons-img"></ion-icon>
-                        </button>
-                        <button>
-                            <ion-icon name="call-outline" class="content-buttons-img"></ion-icon>
-                        </button>
-                        <button>
-                            <ion-icon name="key-outline" class="content-buttons-img"></ion-icon>
-                        </button>
-                    </div>
+                <div class="content" id="details">
+                    <!-- Montando automaticamente -->
                 </div>
-
             </main> 
 
         <!----------------------- MAIN (END) ------------------------>
 
-
         </div>
 
-    <script src="../js/index.js"></script>
+    <script src="../js/content.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 
     </body>

@@ -17,7 +17,8 @@ body {
 .container{	
 	background: #f3f2f2;
 
-	width: 100%;
+    width: 100%;
+    
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -79,6 +80,7 @@ body {
         justify-content: space-between;
         align-items: center;
         
+        z-index: 1;
     }
 
     .header-link{
@@ -214,7 +216,6 @@ body {
 
 .menu-mobile ul{
     list-style: none;
-    position: relative;
 }
 
 .menu-mobile ul li{
@@ -305,6 +306,8 @@ body {
         box-shadow: 4px 0 4px -5px #908f92; /*rigth shadow*/
 
         display: block;
+
+        z-index: 0;
     }
     .menu ul li a{	
         color: #908f92;
@@ -329,10 +332,6 @@ body {
                         		*MOBILE*
 ---------------------------------------------------------------------*/
 
-tr{
-    display: none; /*hide tr desktop*/
-}
-
 .main{
     display: flex;
 	width: 100%;
@@ -347,7 +346,7 @@ tr{
     background: none;
 }
 
-.main table .tr-mobile {
+tr {
     width: 100%;
     height: 100%;
 
@@ -363,33 +362,37 @@ tr{
     flex-wrap: wrap ;
 }
 
-.main table .tr-mobile:first-child{
+tr:first-child{
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
 
-.main table .tr-mobile:last-child{
+tr:last-child{
 	border-bottom: none;
 }
 
-.main table .tr-mobile td{	
+tr td{	
 	background-color: white;
 }
 
-.username{
+.td-name{
     font-weight: bold;
     font-size: 130%;
-    margin-right: 5%;
+
+    color: #2c3e50;
 }
 
-.main table .tr-mobile td button{	
+tr td button{	
     width: 30px;
     height: 30px;
     color: #908f92;
+    
+    cursor: pointer;
     border-style: none;
     background: none;
 }
-.main table .tr-mobile td button ion-icon{	
+
+tr td button ion-icon{	
     width: 20px;
     height: 20px;
     color: #908f92;
@@ -397,12 +400,25 @@ tr{
     background: none;
 }
 
-.content-photo-mobile{
+.td-photo-content{
     width: 60px;
     
-    margin: 5px;
 
 	border-radius: 100%;
+}
+
+/*---- HIDE PARAMETERS ----*/
+
+.td-email{
+    display: none;
+}
+
+.td-phone{
+    display: none;
+}
+
+.td-city{
+    display: none;
 }
 
 
@@ -412,11 +428,6 @@ tr{
 ---------------------------------------------------------------------*/
 
 @media (min-width: 900px) {
-
-    .main table .tr-mobile {
-        display: none; /*hide tr mobile*/       
-    }
-
     .main{        
         width: 86%;
         height: 90%;
@@ -438,53 +449,50 @@ tr{
         border: none;
     }
     
-    .main table tr {
+    tr {
         width: 100%;
         background-color: white;
         box-shadow: 0px 0px 3px 0px #908f92; /*sombra no contorno*/
         
         border-bottom: 2px solid #E7E7E7;
+        cursor: alias;
 
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+
     }
     
-    .main table tr:first-child{
+    tr:first-child{
         border-top-left-radius: 6px;
         border-top-right-radius: 6px;
     }
     
-    .main table tr:last-child{
+    tr:last-child{
         border-bottom: 0;
     }
     
-    .main table tr td{	
+    tr td{	
         background-color: white;
-    }
-
-
-    .main table tr td button{	
-        background: none;
-        border: 0;
-        
-        color: #908f92;
-    }
-
-    .main table tr td button:hover{
-        color:#b4c12d; 
     }
 
     .td-photo{
         width: 10%;
-        height: 50px;
+        height: 100%;
         
-        margin: 1%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        
         border-radius: 100%;
+        
+        display: flex;
+        justify-content: center;
+        align-content: center;
     }
     
     .td-photo-content{
-        height: 50px;
+        height: 40px;
+        width: 40px;
 
         border-radius: 100%;
         border: none;
@@ -492,42 +500,76 @@ tr{
     }
 
     .td-name {
-        width: 10%;
+        width: 9%;
         font-size: 100%;
+
+        margin-left: 1%;
+        display: flex;
+        justify-content: start;
     }
 
     .td-email{
-        width: 30%;
-        font-size: 90%;
+        width: 27%;
+        font-size: 85%;
 
+        margin-left: 3%;
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
     }
 
     .td-phone{
         width: 15%;
         font-size: 80%;
+        
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .td-city{
-        width: 25%;
+        width: 23%;
         font-size: 80%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
+    
     .td-buttons{
         width: 10%;
         height: 100%;
 
+        margin-right: 2%;
+
         display: flex;
         justify-content: space-around;
         align-items: center;
+        flex-wrap: wrap;
     }
 
-    .td-buttons-btn{
-        width: 15px;
-        height: 15px;
+    tr td button{
+        width: 20px;
+        height: 20px;
+
+        background: none;
+        border: 0;
+        cursor: pointer;
         
+        color: #908f92;
     }
 
-
+    tr td button:hover{
+        color:#b4c12d; 
+    }
+    
+    tr td button ion-icon{	
+        width: 20px;
+        height: 20px;
+        color: #908f92;
+        border-style: none;
+        background: none;
+    }
 
 }
 

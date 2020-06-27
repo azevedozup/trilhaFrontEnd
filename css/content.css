@@ -47,7 +47,7 @@ body {
     margin-top: 10%;
 }
 
-.header-back-btn{
+#header_back_btn{
     width: 100%;
     height: 100%;
     
@@ -93,6 +93,20 @@ body {
     
 }
 
+h3{
+    padding-bottom: 10px;
+    color: #505050;
+    font-size: 130%;
+    text-align: center;
+}
+
+h2{
+    padding: 10px;
+    color: #b9b9b9;
+    
+    text-align: center;
+}
+
 /*---------- PHOTO ----------*/
 
 .content-photo-space{
@@ -103,7 +117,7 @@ body {
 
 }
 
-.content-photo{
+#content_photo{
     width: 50%;
 
     margin-top: 25%;
@@ -113,28 +127,13 @@ body {
     box-shadow: 0 0 0 1px #ccc;
 }
 
-/*---------- NAME ----------*/
+/*---------- SPACES ----------*/
 
-.content-name-space{
-    display: flex;
+#content_name_space{
+    display: none;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.content-name-space h3{
-    width: 100%;
-    text-align: center;
-    padding-bottom: 10px;
-    color: #505050;
-    font-size: 130%;
-}
-
-.content-name-space h2{
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    color: #b9b9b9;
 }
 
 /*---------- BUTTONS ----------*/
@@ -174,31 +173,35 @@ body {
         width: 50%;
     }
 
-    /*---------- PHOTO ----------*/
+    h3{
+        font-size: 200%;
+        text-align: center;
+    }
+    
+    h2{
+        font-size: 120%;
+        text-align: center;
+        font-weight: normal;
+    }
+
+    /*---------- GENERAL ----------*/
     .content-photo-space{
         width: 100%;
     }
 
-    .content-photo{
+    #content_photo{
         
         width: 200px;
         height: 200px;
 
         margin-top: 2%;
     }
-
     
-    /*---------- NAME ----------*/
-    .content-name-space{
+    /*---------- SPACES ----------*/
+    
+    #content_name_space{
+        display: flex;
         margin-top: 10px;
-    }
-    .content-name-space h3{
-        font-size: 200%;
-    }
-    
-    .content-name-space h2{
-        font-size: 120%;
-        font-weight: normal;
     }
     
     /*---------- BUTTONS ----------*/
@@ -226,6 +229,7 @@ body {
     .content-buttons-space button:hover{
         color:#b4c12d;
         outline-color: white;
+        cursor: pointer;
     }
     
     .content-buttons-img{
