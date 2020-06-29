@@ -86,7 +86,6 @@ window.addEventListener('load', async () => {
 });
 
 function backIndexClick(){
-    event.stopPropagation()
     window.location.href = "http://127.0.0.1:5500/allProjects/challenge1/pages/index.html"
 }
 

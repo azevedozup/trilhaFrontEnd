@@ -128,7 +128,7 @@ body {
 
     }
 
-    .search{
+    #searchBarInput{
         width: 90%;
         height: 80%;
         
@@ -139,7 +139,7 @@ body {
         outline-color: white;
     }
 
-    .search::placeholder {
+    #searchBarInput::placeholder {
         color: #2c3e50;
         opacity: 0.9;
         
@@ -264,7 +264,7 @@ body {
     align-items: center;
 }
 
-.search-mobile-input{
+#searchBarInputMobile{
     width: 80%;
     height: 70%;
     padding-left: 3%;
