@@ -70,19 +70,19 @@ function renderDetail(user) {
                 <ion-icon name="person-outline" class="content-buttons-img" data-frase="Olá, meu nome é" data-variable="${first + ' ' + last}" id="btn_name"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="mail-outline" class="content-buttons-img" data-frase="O meu e-mail é" data-variable="${first + ' ' + last}" id="btn_email"></ion-icon>
+                <ion-icon name="mail-outline" class="content-buttons-img" data-frase="O meu e-mail é" data-variable="${email}" id="btn_email"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="calendar-outline" class="content-buttons-img" data-frase="O meu nascimento foi dia" data-variable="${first + ' ' + last}" id="btn_birth"></ion-icon>
+                <ion-icon name="calendar-outline" class="content-buttons-img" data-frase="O meu nascimento foi dia" data-variable="${birth}" id="btn_birth"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="location-outline" class="content-buttons-img" data-frase="O meu endereço é" data-variable="${first + ' ' + last}" id="btn_address"></ion-icon>
+                <ion-icon name="location-outline" class="content-buttons-img" data-frase="O meu endereço é" data-variable="${name + ', ' + number + ' - ' + district}" id="btn_address"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="call-outline" class="content-buttons-img" data-frase="O meu telefone é" data-variable="${first + ' ' + last}" id="btn_phone"></ion-icon>
+                <ion-icon name="call-outline" class="content-buttons-img" data-frase="O meu telefone é" data-variable="${phone}" id="btn_phone"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="key-outline" class="content-buttons-img" data-frase="A minha senha é" data-variable="${first + ' ' + last}" id="btn_pass"></ion-icon>
+                <ion-icon name="key-outline" class="content-buttons-img" data-frase="A minha senha é" data-variable="${pass}" id="btn_pass"></ion-icon>
             </button>
         </div>
     `;
