@@ -400,6 +400,10 @@ tr td button ion-icon{
     background: none;
 }
 
+.mark-button-color{
+    color:#b4c12d;
+}
+
 .td-photo-content{
     width: 60px;
     

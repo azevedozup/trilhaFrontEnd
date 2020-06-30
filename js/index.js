@@ -23,6 +23,7 @@ function render() {
 async function fetchUsers() {    
     const res = await fetch('http://localhost:3000/users'); 
     const json = await res.json();
+    
 
     allUsers = json.map(user => {
         //console.log(user)
@@ -44,7 +45,6 @@ async function fetchUsers() {
     });
 
     render()
-    //console.log(allUsers)
 }
 
 function renderUserList(parameter) {
@@ -52,7 +52,7 @@ function renderUserList(parameter) {
     parameter.forEach(user => {
         const { id, picture, name, email, phone, city, state } = user;
         const userHTML = `
-                <tr class="line" onclick="lineClick()" data-login="${user.id}"> 
+                <tr class="line" onclick="lineClick(${user.id})"> 
                     <td class="td-photo">
                             <img src="${user.picture}" alt="${user.name}" class="td-photo-content" title="Foto do usuário">
                     </td>
@@ -63,13 +63,13 @@ function renderUserList(parameter) {
                     <td class="td-phone">${user.phone}</td>
                     <td class="td-city">${user.city} - ${user.state}</td>
                     <td class="td-buttons">
-                        <button class="all" title="Abrir detalhes" onclick="allClick()">
+                        <button class="mark-button" title="Abrir detalhes" onclick="markClick(${user.id}, whatButton='all')" data-button="all">
                             <ion-icon name="apps-outline" class="td-buttons-btn"></ion-icon>
                         </button>
-                        <button class="attended" title="Mover para Atendidos" onclick="attendedClick()">
+                        <button class="mark-button" title="Mover para Atendidos" onclick="markClick(${user.id}, whatButton='attended')" data-button="attended">
                             <ion-icon name="checkmark-outline" class="td-buttons-btn"></ion-icon>
                         </button>
-                        <button class="trash" title="Mover para Lixeira" onclick="trashClick()">
+                        <button class="mark-button" title="Mover para Lixeira" onclick="markClick(${user.id}, whatButton='trash')" data-button="trash">
                             <ion-icon name="trash-outline" class="td-buttons-btn"></ion-icon>
                         </button>
                     </td>
@@ -81,11 +81,16 @@ function renderUserList(parameter) {
     tabUsers.innerHTML = usersHTML;
 }
 
+
 // SEARCHING SPECIFIC USER BY NAME OR EMAIL
 const searchBar = document.getElementById('searchBarInput')
 const searchBarMobile = document.getElementById('searchBarInputMobile')
 
-searchBar.addEventListener('keyup', (e) => {
+
+searchBar.addEventListener('keyup', search)
+searchBarMobile.addEventListener('keyup', search)
+
+function search(e) {
     const searchString = e.target.value.toLowerCase()
     const filteredUsers = allUsers.filter((user) => {
         return(
@@ -95,83 +100,77 @@ searchBar.addEventListener('keyup', (e) => {
         )
     })
     renderUserList(filteredUsers)
-})
-
-searchBarMobile.addEventListener('keyup', (e) => {
-    const searchStringMobile = e.target.value.toLowerCase()
-    const filteredUsersMobile = allUsers.filter((user) => {
-        return(
-            user.name.toLowerCase().includes(searchStringMobile) ||
-            user.lastName.toLowerCase().includes(searchStringMobile) ||
-            user.email.toLowerCase().includes(searchStringMobile)
-        )
-    })
-    renderUserList(filteredUsersMobile)
-})
-
-
-//onkeypress
-function searchClick() {    
-    event.stopPropagation()
-    
-    //fazer evento de pesquisa com a o texto digitado na barra
-
-    alert("Pesquisando usuário!")
 }
 
-function lineClick() {
+function lineClick(id) {
+    let user = allUsers.find(user => user.id === id)
+    if (user) 
+    window.location.href = "http://127.0.0.1:5500/allProjects/challenge1/pages/content.html?id=" + id
+}
+
+async function markClick(id, whatButton) {
     event.stopPropagation() 
 
-    let line = event.target //navegando até a tr
-    let login = line.getAttribute('data-login') //pegando o id
+    const res = await fetch('http://localhost:3000/users/' + id);
+    const user = await res.json()
+    let variable = whatButton
 
-    if (login === null) {
-        line = event.target.parentNode
-        login = line.getAttribute('data-login')
-    } //tratando se o click foi na td
-
-    let user = allUsers.find(user => user.id === login)
-    if (user) 
-    window.location.href = "http://127.0.0.1:5500/allProjects/challenge1/pages/content.html?id=" + login
+    userMontage(id, user, variable)
 }
 
+async function userMontage(id, user, variable){
+    let {picture, gender, name:{first, last}, birth, address:{street:{name, number, district}, city, state, country}, phone, email, pass, all, attended, trash} = user;
 
-function allClick() {
-    event.stopPropagation()    
+    if (variable === 'all') {
+        all = 'true'
+    }
+    else if ( variable === 'attended'){
+        attended = 'true'
+    }
+    else {
+        trash = 'true'
+    }
 
-    let line = event.target.parentNode.parentNode.parentNode //navegando até a tr
-    let login = line.getAttribute('data-login') //pegando o uuid
-    let index = allUsers.findIndex(user => user.id === login) // busca o usuario por login no array
-    if (index > -1) allUsers.splice(index, 1) // remove o usuario do array
-    line.remove(line) // remove a linha do table
+    const putMethod = await {
+        method: 'PUT', // Method itself
+        headers: {
+         'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+        },
+        body: JSON.stringify({
+            "id": id,
+            "picture": picture,
+            "gender": gender,
+            "name": {
+              "first": first,
+              "last": last
+            },
+            "birth": birth,
+            "address": {
+              "street": {
+                "name": name,
+                "number": number,
+                "district": district
+              },
+              "city": city,
+              "state": state,
+              "country": country
+            },
+            "phone": phone,
+            "email": email,
+            "pass": pass,
+            "all": all,
+            "attended": attended,
+            "trash": trash
+        }) 
+    }
 
-    //fazer com que a linha removida, vá para todos
+    await putRequest(putMethod, id)
 }
 
-
-function attendedClick() {
-    event.stopPropagation()    
-
-    let line = event.target.parentNode.parentNode.parentNode //navegando até a tr
-    let login = line.getAttribute('data-login') //pegando o uuid
-    let index = allUsers.findIndex(user => user.id === login) // busca o usuario por login no array
-    if (index > -1) allUsers.splice(index, 1) // remove o usuario do array
-    line.remove(line) // remove a linha do table
+async function putRequest(putMethod, id) {
     
-    //filter
+    await fetch('http://localhost:3000/users/' + id, putMethod)
+        .then(response => response.json())
+        .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
 
-    //fazer com que a linha removida, vá para atendidos
 }
-
-function trashClick() {
-    event.stopPropagation()    
-
-    let line = event.target.parentNode.parentNode.parentNode //navegando até a tr
-    let login = line.getAttribute('data-login') //pegando o uuid
-    let index = allUsers.findIndex(user => user.id === login) // busca o usuario por login no array
-    if (index > -1) allUsers.splice(index, 1) // remove o usuario do array
-    line.remove(line) // remove a linha do table
-
-    //fazer com que a linha removida, vá para lixeira
-}
-

@@ -235,12 +235,13 @@ h2{
     }
 
     .content-buttons-space button:hover{
-        outline-color: white;
         cursor: pointer;
     }
 
     .content_button_color{
         color:#b4c12d;
+        width: 35px;
+        height: 35px;
     }
     
     .content-buttons-img{

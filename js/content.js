@@ -7,7 +7,6 @@ async function fetchDetails() {
     const res = await fetch('http://localhost:3000/users/' + id);
     const json = await res.json()
     return json
-    //renderDetail(json)
 }
 
 /* -------------------- */
@@ -22,79 +21,39 @@ window.addEventListener('load', async () => {
 
     const { picture, name:{first, last}, email, birth, phone, address:{street:{name, number, district}}, pass} = user;
 
-    let variableDetail = document.getElementById('variable_detail')
-    let frase = document.getElementById('frase')
-
-    frase.innerText = 'Olá, meu nome é'
-    variableDetail.innerText = first + ' ' + last
-
     //spread operation
     let arr = [...document.querySelectorAll(".content_button")]
 
     let button = document.getElementById('btn_name')
     button.classList.add("content_button_color")
 
-    arr.forEach(e => e.addEventListener('mouseover', () => {
-                
-        event.stopPropagation()
-
-        if (event.target.id === 'btn_name') {
-            frase.innerText = 'Olá, meu nome é'
-            variableDetail.innerText = first + ' ' + last
-            button.classList.remove("content_button_color")
-            button = document.getElementById('btn_name')
-            button.classList.add("content_button_color")
-        }
-        if (event.target.id === 'btn_email') {
-            frase.innerText = 'O meu e-mail é'
-            variableDetail.innerText = email
-            button.classList.remove("content_button_color")
-            button = document.getElementById('btn_email')
-            button.classList.add("content_button_color")
-        }
-        if (event.target.id === 'btn_birth') {
-            frase.innerText = 'O meu nascimento foi dia'
-            variableDetail.innerText = birth
-            button.classList.remove("content_button_color")
-            button = document.getElementById('btn_birth')
-            button.classList.add("content_button_color")
-        }
-        if (event.target.id === 'btn_address') {
-            frase.innerText = 'O meu endereço é'
-            variableDetail.innerText = name + ', ' + number + ' - ' + district
-            button.classList.remove("content_button_color")
-            button = document.getElementById('btn_address')
-            button.classList.add("content_button_color")
-        }
-        if (event.target.id === 'btn_phone') {
-            frase.innerText = 'O meu telefone é'
-            variableDetail.innerText = phone
-            button.classList.remove("content_button_color")
-            button = document.getElementById('btn_phone')
-            button.classList.add("content_button_color")
-        }
-        if (event.target.id === 'btn_pass') {
-            frase.innerText = 'A minha senha é'
-            variableDetail.innerText = pass
-            button.classList.remove("content_button_color")
-            button = document.getElementById('btn_pass')
-            button.classList.add("content_button_color")
-        }
-        
-    }))
-    
+    arr.forEach(e => {        
+        e.querySelector(".content-buttons-img").addEventListener('mouseover', setDivName)
+    })
 });
+
+function setDivName (event) {
+    const lastButton = document.querySelector('.content_button_color')
+    const btnName = document.getElementById('btn_name')
+    const frase = document.getElementById('frase')
+    const variableDetail = document.getElementById('variable_detail')
+    frase.innerText = event.target.getAttribute('data-frase')
+    variableDetail.innerText = event.target.getAttribute('data-variable')
+    btnName.classList.remove("content_button_color")
+    lastButton.classList.remove("content_button_color")
+    event.target.classList.add("content_button_color")
+}
 
 function backIndexClick(){
     window.location.href = "http://127.0.0.1:5500/allProjects/challenge1/pages/index.html"
 }
 
 function renderDetail(user) {
-    let frase = '';
-    let variableDetail = '';
-    let detailsHTML = '<div>';
-
     const { picture, name:{first, last}, email, birth, phone, address:{street:{name, number, district}}, pass} = user;
+
+    const frase = 'Olá, meu nome é';
+    const variableDetail = first + ' ' + last;
+    let detailsHTML = '<div>';
 
     const userHTML = `
         <div class="content-photo-space">
@@ -107,23 +66,23 @@ function renderDetail(user) {
         </div>
 
         <div class="content-buttons-space">
-            <button class="content_button">
-                <ion-icon name="person-outline" class="content-buttons-img" id="btn_name"></ion-icon>
+            <button class="content_button content_button_color">
+                <ion-icon name="person-outline" class="content-buttons-img" data-frase="Olá, meu nome é" data-variable="${first + ' ' + last}" id="btn_name"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="mail-outline" class="content-buttons-img" id="btn_email"></ion-icon>
+                <ion-icon name="mail-outline" class="content-buttons-img" data-frase="O meu e-mail é" data-variable="${first + ' ' + last}" id="btn_email"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="calendar-outline" class="content-buttons-img" id="btn_birth"></ion-icon>
+                <ion-icon name="calendar-outline" class="content-buttons-img" data-frase="O meu nascimento foi dia" data-variable="${first + ' ' + last}" id="btn_birth"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="location-outline" class="content-buttons-img" id="btn_address"></ion-icon>
+                <ion-icon name="location-outline" class="content-buttons-img" data-frase="O meu endereço é" data-variable="${first + ' ' + last}" id="btn_address"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="call-outline" class="content-buttons-img" id="btn_phone"></ion-icon>
+                <ion-icon name="call-outline" class="content-buttons-img" data-frase="O meu telefone é" data-variable="${first + ' ' + last}" id="btn_phone"></ion-icon>
             </button>
             <button class="content_button">
-                <ion-icon name="key-outline" class="content-buttons-img" id="btn_pass"></ion-icon>
+                <ion-icon name="key-outline" class="content-buttons-img" data-frase="A minha senha é" data-variable="${first + ' ' + last}" id="btn_pass"></ion-icon>
             </button>
         </div>
     `;
