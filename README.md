@@ -1,6 +1,6 @@
 # DESAFIO - NIVEL BÁSICO (HTML, CSS, JAVASCRIPT)
 
-# ..:: Objetivo ::..
+### ..:: Objetivo ::..
 Implementar uma aplicação para gerenciar pessoas. Essa aplicação necessita ser executada nos navegadores mais recentes do mercado.
 
 ### ..:: Layout ::.. 
@@ -11,13 +11,13 @@ https://marvelapp.com/39776de
 https://github.com/typicode/json-server
 
   #### - Instale com o comando a seguir no terminal
-  npm install -g json-server
+  ` npm install -g json-server `
   
   #### - Crie um arquivo json, ou vá na pasta api da minha aplicação (api.json)
-  cd ..\api
+  ` cd ..\api `
   
   #### - Execute o json
-  json-server --watch api.json
+  ` json-server --watch api.json `
 
 ### ..:: Requisitos - Nível 1 ::..
 1) Eu como usuário, desejo visualizar a listagem de candidatos;
