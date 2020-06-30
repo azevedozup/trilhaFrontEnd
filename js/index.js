@@ -1,33 +1,27 @@
+let tabUsers = null
+let allUsers = []
+let param = ''
+
 const menu_mobile = document.getElementById('menu-mobile')
 const menu_mobile_btn = document.getElementById('menu-mobile-btn')
-
-// when click menu btn, show nav and hide searchbar
 menu_mobile_btn.addEventListener('click', () => {
     menu_mobile.classList.toggle('menu-mobile-open')
 })
 
-//https://randomuser.me
-
-let tabUsers = null;
-let allUsers = [];
-
 window.addEventListener('load', () => {
-    tabUsers = document.querySelector('#users');
-    fetchUsers();
+    tabUsers = document.querySelector('#users')
+    fetchDatabase(param)
 });
 
-function render() {
-    renderUserList(allUsers)
+async function fetchDatabase(param) {
+    console.log(param)
+    const res = await fetch('http://localhost:3000/users?' + param)
+    const json = await res.json()
+    mapUsers(json)
 }
 
-async function fetchUsers() {    
-    const res = await fetch('http://localhost:3000/users'); 
-    const json = await res.json();
-    
-
+function mapUsers(json) {    
     allUsers = json.map(user => {
-        //console.log(user)
-
         const { id, picture, name:{first, last}, email, phone, address, all, attended, trash } = user;
         return {
             id: id,
@@ -43,8 +37,11 @@ async function fetchUsers() {
             trash : trash,
         }
     });
-
     render()
+}
+
+function render() {
+    renderUserList(allUsers)
 }
 
 function renderUserList(parameter) {
@@ -122,15 +119,30 @@ async function userMontage(id, user, variable){
     let {picture, gender, name:{first, last}, birth, address:{street:{name, number, district}, city, state, country}, phone, email, pass, all, attended, trash} = user;
 
     if (variable === 'all') {
-        all = 'true'
+        if (all === 'true'){
+            all = 'false'
+        }
+        else if (all === 'false'){
+            all = 'true'
+        }
     }
-    else if ( variable === 'attended'){
-        attended = 'true'
+    else if (variable === 'attended') {
+        if (attended === 'true'){
+            attended = 'false'
+        }
+        else if (attended === 'false'){
+            attended = 'true'
+        }
     }
-    else {
-        trash = 'true'
+    else if (variable === 'trash') {
+        if (trash === 'true'){
+            trash = 'false'
+        }
+        else if (trash === 'false'){
+            trash = 'true'
+        }
     }
-
+    
     const putMethod = await {
         method: 'PUT', // Method itself
         headers: {
@@ -173,4 +185,10 @@ async function putRequest(putMethod, id) {
         .then(response => response.json())
         .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
 
+}
+
+function sideBarClick(){    
+    let menu = event.target.parentNode.parentNode.getAttribute('data-menu')
+    let param = menu + '=true'
+    fetchDatabase(param)
 }

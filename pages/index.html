@@ -70,24 +70,24 @@
                         <span>Perfil</span>
                     </a>
                 </li>
-                <li> 
-                    <a href="#" title="Todos">
+                <li onclick="sideBarClick()" data-menu="all"> 
+                    <a title="Todos">
                         <span>
                             <ion-icon name="apps-outline" class="menu-mobile-img"></ion-icon>
                         </span>
                         <span>Todos</span>
                     </a>
                 </li>
-                <li> 
-                    <a href="#" title="Atendidos">
+                <li onclick="sideBarClick()" data-menu="attended"> 
+                    <a title="Atendidos">
                         <span>
                             <ion-icon name="checkmark-done-outline" class="menu-mobile-img"></ion-icon>
                         </span>
                         <span>Atendidos</span>
                     </a>
                 </li>
-                <li> 
-                    <a href="#" title="Lixeira">
+                <li onclick="sideBarClick()" data-menu="trash"> 
+                    <a title="Lixeira">
                         <span>
                             <ion-icon name="trash-outline" class="menu-mobile-img"></ion-icon>
                         </span>
@@ -112,8 +112,8 @@
 
         <nav class="menu">
             <ul>
-                <li> 
-                    <a href="index.html" title="Todos">
+                <li onclick="sideBarClick()" data-menu="all"> 
+                    <a title="Todos">
                         <ion-icon name="apps-outline" class="menu-ico"></ion-icon>
                         <span class="menu-opt">
                             Todos
@@ -121,8 +121,8 @@
                     </a>
                 </li>
 
-                <li> 
-                    <a href="index.html" title="Atendidos">
+                <li onclick="sideBarClick()" data-menu="attended"> 
+                    <a title="Atendidos">
                         <ion-icon name="checkmark-done-outline" class="menu-ico"></ion-icon>
                         <span class="menu-opt">
                             Atendidos
@@ -130,8 +130,8 @@
                     </a>
                 </li>
 
-                <li> 
-                    <a href="index.html" title="Lixeira">
+                <li onclick="sideBarClick()" data-menu="trash"> 
+                    <a title="Lixeira">
                         <ion-icon name="trash-outline" class="menu-ico"></ion-icon>
                         <span class="menu-opt">
                             Lixeira
