@@ -1,0 +1,108 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "picture": "https://images.generated.photos/sgByAx3zZf0qh54SKtPZn9i_xmTW_FKa39INZhVDznQ/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Ry/YW5zcGFyZW50X3Yz/L3YzXzA5Nzk0OTku/cG5n.png",
+      "gender": "female",
+      "name": {
+        "first": "Sophia",
+        "last": "Tessalia"
+      },
+      "birth": "12/08/1982",
+      "address": {
+        "street": {
+          "name": "Rua Onze",
+          "number": 2976,
+          "district": "Taquaral"
+        },
+        "city": "Hortolândia",
+        "state": "São Paulo",
+        "country": "Brasil"
+      },
+      "phone": "(19) 98876-1562",
+      "email": "sophia.tessalia@example.com",
+      "pass": "sophie123",
+      "all": false,
+      "attended": false,
+      "trash": true
+    },
+    {
+      "id": 2,
+      "picture": "https://images.generated.photos/D74eqnF5TaXTsjbJtY_iNdGeN1-iRvV28yI9StiQsCQ/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Ry/YW5zcGFyZW50X3Yz/L3YzXzAxNjc5ODcu/cG5n.png",
+      "gender": "male",
+      "name": {
+        "first": "Jorge",
+        "last": "Aragão"
+      },
+      "birth": "05/02/1972",
+      "address": {
+        "street": {
+          "name": "Rua Dez",
+          "number": 7219,
+          "district": "Uberlandinha"
+        },
+        "city": "Uberlândia",
+        "state": "São Paulo",
+        "country": "Brasil"
+      },
+      "phone": "(19) 9977-1515",
+      "email": "jorge.aragao@example.com",
+      "pass": "jorge123",
+      "all": true,
+      "attended": false,
+      "trash": false
+    },
+    {
+      "id": 3,
+      "picture": "https://images.generated.photos/E0WqNnmvWgm38L6yxvDSBFW4m7YywtwUgqd7iONK_I8/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Ry/YW5zcGFyZW50X3Yz/L3YzXzA5MDc0ODIu/cG5n.png",
+      "gender": "female",
+      "name": {
+        "first": "Marcia",
+        "last": "Silver"
+      },
+      "birth": "01/01/1901",
+      "address": {
+        "street": {
+          "name": "Rua Cinco",
+          "number": 505,
+          "district": "Sumarézinho"
+        },
+        "city": "Sumaré",
+        "state": "São Paulo",
+        "country": "Brasil"
+      },
+      "phone": "(19) 98999-1222",
+      "email": "marcia.silver@example.com",
+      "pass": "silver123",
+      "all": true,
+      "attended": false,
+      "trash": false
+    },
+    {
+      "id": 4,
+      "picture": "https://images.generated.photos/eUO8BH6axS1GlPY0i_OSB0_-b0t5Lhf5Ms92iclyNXY/rs:fit:512:512/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Ry/YW5zcGFyZW50X3Yz/L3YzXzAxMTUxNzYu/cG5n.png",
+      "gender": "male",
+      "name": {
+        "first": "Rafael",
+        "last": "Azevedo"
+      },
+      "birth": "25/10/1995",
+      "address": {
+        "street": {
+          "name": "Rua Um",
+          "number": 899,
+          "district": "Taquaral"
+        },
+        "city": "Campinas",
+        "state": "São Paulo",
+        "country": "Brasil"
+      },
+      "phone": "(19) 99776-1273",
+      "email": "rafael.azevedo@zup.com",
+      "pass": "rafael123",
+      "all": true,
+      "attended": false,
+      "trash": false
+    }
+  ]
+}

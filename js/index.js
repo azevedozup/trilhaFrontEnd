@@ -83,13 +83,13 @@ function lineClick(id) {
 
 async function markClick(id, whatButton) {
     event.stopPropagation() 
-    event.preventDefault()
     
     const res = await fetch('http://localhost:3000/users/' + id);
     const user = await res.json()
     let variable = whatButton
 
     userMontage(id, user, variable)
+    
 }
 
 function userMontage(id, user, variable){
