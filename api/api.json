@@ -23,8 +23,8 @@
       "email": "sophia.tessalia@example.com",
       "pass": "sophie123",
       "all": false,
-      "attended": false,
-      "trash": true
+      "attended": true,
+      "trash": false
     },
     {
       "id": 2,
@@ -74,9 +74,9 @@
       "phone": "(19) 98999-1222",
       "email": "marcia.silver@example.com",
       "pass": "silver123",
-      "all": true,
+      "all": false,
       "attended": false,
-      "trash": false
+      "trash": true
     },
     {
       "id": 4,
@@ -100,9 +100,9 @@
       "phone": "(19) 99776-1273",
       "email": "rafael.azevedo@zup.com",
       "pass": "rafael123",
-      "all": true,
+      "all": false,
       "attended": false,
-      "trash": false
+      "trash": true
     }
   ]
 }
