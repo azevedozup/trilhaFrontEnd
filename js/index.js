@@ -1,6 +1,7 @@
 let tabUsers = null
 let allUsers = []
 let param = ''
+const inButtons = {all:false, attended:false, trash:false}
 
 const menu_mobile = document.getElementById('menu-mobile')
 const menu_mobile_btn = document.getElementById('menu-mobile-btn')
@@ -10,55 +11,30 @@ menu_mobile_btn.addEventListener('click', () => {
 
 window.addEventListener('load', () => {
     tabUsers = document.querySelector('#users')
-    fetchDatabase(param)
+    fetchDatabase(param).then(parameter => renderUserList(parameter))
+    console.log('RELOAD')
 });
 
 async function fetchDatabase(param) {
-    console.log(param)
     const res = await fetch('http://localhost:3000/users?' + param)
-    const json = await res.json()
-    mapUsers(json)
-}
-
-function mapUsers(json) {    
-    allUsers = json.map(user => {
-        const { id, picture, name:{first, last}, email, phone, address, all, attended, trash } = user;
-        return {
-            id: id,
-            picture: picture,
-            name: first,
-            lastName: last,
-            email: email,
-            phone: phone,
-            city: address.city,
-            state: address.state,
-            all: all,
-            attended : attended,
-            trash : trash,
-        }
-    });
-    render()
-}
-
-function render() {
-    renderUserList(allUsers)
+    return allUsers = await res.json()
 }
 
 function renderUserList(parameter) {
     let usersHTML = '<table>';
     parameter.forEach(user => {
-        const { id, picture, name, email, phone, city, state } = user;
+        const { id, picture, name:{first, last}, email, phone, address:{street:{name, number, district}, city, state, country} } = user;
         const userHTML = `
                 <tr class="line" onclick="lineClick(${user.id})"> 
                     <td class="td-photo">
-                            <img src="${user.picture}" alt="${user.name}" class="td-photo-content" title="Foto do usuário">
+                            <img src="${user.picture}" alt="${first}" class="td-photo-content" title="Foto do usuário">
                     </td>
                     <td class="td-name">
-                        ${user.name}
+                        ${first}
                     </td>
                     <td class="td-email">${user.email}</td>
                     <td class="td-phone">${user.phone}</td>
-                    <td class="td-city">${user.city} - ${user.state}</td>
+                    <td class="td-city">${city} - ${state}</td>
                     <td class="td-buttons">
                         <button class="mark-button" title="Abrir detalhes" onclick="markClick(${user.id}, whatButton='all')" data-button="all">
                             <ion-icon name="apps-outline" class="td-buttons-btn"></ion-icon>
@@ -89,14 +65,14 @@ searchBarMobile.addEventListener('keyup', search)
 
 function search(e) {
     const searchString = e.target.value.toLowerCase()
-    const filteredUsers = allUsers.filter((user) => {
+    let user = allUsers.filter((user) => {
         return(
-            user.name.toLowerCase().includes(searchString) ||
-            user.lastName.toLowerCase().includes(searchString) ||
+            user.name.first.toLowerCase().includes(searchString) ||
+            user.name.last.toLowerCase().includes(searchString) ||
             user.email.toLowerCase().includes(searchString)
         )
     })
-    renderUserList(filteredUsers)
+    renderUserList(user)
 }
 
 function lineClick(id) {
@@ -107,7 +83,8 @@ function lineClick(id) {
 
 async function markClick(id, whatButton) {
     event.stopPropagation() 
-
+    event.preventDefault()
+    
     const res = await fetch('http://localhost:3000/users/' + id);
     const user = await res.json()
     let variable = whatButton
@@ -115,80 +92,43 @@ async function markClick(id, whatButton) {
     userMontage(id, user, variable)
 }
 
-async function userMontage(id, user, variable){
-    let {picture, gender, name:{first, last}, birth, address:{street:{name, number, district}, city, state, country}, phone, email, pass, all, attended, trash} = user;
-
-    if (variable === 'all') {
-        if (all === 'true'){
-            all = 'false'
-        }
-        else if (all === 'false'){
-            all = 'true'
-        }
-    }
-    else if (variable === 'attended') {
-        if (attended === 'true'){
-            attended = 'false'
-        }
-        else if (attended === 'false'){
-            attended = 'true'
-        }
-    }
-    else if (variable === 'trash') {
-        if (trash === 'true'){
-            trash = 'false'
-        }
-        else if (trash === 'false'){
-            trash = 'true'
-        }
-    }
+function userMontage(id, user, variable){
     
-    const putMethod = await {
+    buttonMarkClick(variable)
+
+    const putMethod = {
         method: 'PUT', // Method itself
         headers: {
          'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
         },
         body: JSON.stringify({
-            "id": id,
-            "picture": picture,
-            "gender": gender,
-            "name": {
-              "first": first,
-              "last": last
-            },
-            "birth": birth,
-            "address": {
-              "street": {
-                "name": name,
-                "number": number,
-                "district": district
-              },
-              "city": city,
-              "state": state,
-              "country": country
-            },
-            "phone": phone,
-            "email": email,
-            "pass": pass,
-            "all": all,
-            "attended": attended,
-            "trash": trash
+            ...user,...inButtons
         }) 
     }
 
-    await putRequest(putMethod, id)
+    putRequest(putMethod, id)
 }
 
-async function putRequest(putMethod, id) {
+function buttonMarkClick(variable){
     
-    await fetch('http://localhost:3000/users/' + id, putMethod)
-        .then(response => response.json())
-        .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-
+    if (variable === 'all') {
+        return inButtons.all = true
+    }
+    else if (variable === 'attended') {
+        return inButtons.attended = true
+    }
+    else if (variable === 'trash') {
+        return inButtons.trash = true
+    }
 }
 
-function sideBarClick(){    
+async function putRequest(putMethod, id) {  
+    const response = fetch('http://localhost:3000/users/' + id, putMethod)
+}
+
+async function sideBarClick(){    
     let menu = event.target.parentNode.parentNode.getAttribute('data-menu')
     let param = menu + '=true'
-    fetchDatabase(param)
+    await fetchDatabase(param)
+    await renderUserList(allUsers)
 }
